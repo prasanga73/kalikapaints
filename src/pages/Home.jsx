@@ -137,6 +137,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Kalika Paints */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Decorative accents */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-kalika-navy/5 rounded-full -translate-y-1/2 -translate-x-1/3" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-kalika-gold/10 rounded-full translate-y-1/3 translate-x-1/4" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — Description */}
+            <div>
+              <p className="text-sm font-semibold text-kalika-gold uppercase tracking-widest mb-3">
+                Who We Are
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-kalika-navy mb-6 leading-tight">
+                Kalika Paints — Crafting Color Since Day One
+              </h2>
+              <p className="text-kalika-slate leading-relaxed mb-5">
+                Kalika Paints is a trusted name in the paint industry, dedicated to delivering premium-quality coatings for homes, offices, and commercial spaces. We combine cutting-edge technology with time-tested formulations to produce paints that are vibrant, long-lasting, and eco-friendly.
+              </p>
+              <p className="text-kalika-slate-light leading-relaxed mb-8">
+                From interior elegance to exterior durability, our wide range of products is designed to meet every need — backed by expert color consultation and a commitment to customer satisfaction.
+              </p>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 bg-kalika-navy text-white px-7 py-3 rounded-lg font-semibold hover:bg-kalika-navy-light hover:shadow-lg hover:shadow-kalika-navy/20 transition-all duration-300 group"
+              >
+                Learn More About Us
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Right — Logo */}
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="absolute -inset-6 bg-gradient-to-br from-kalika-navy/10 to-kalika-gold/10 rounded-3xl blur-2xl" />
+                <div className="relative bg-kalika-navy rounded-2xl p-10 shadow-2xl shadow-kalika-navy/20 border border-kalika-navy-light/30">
+                  <img
+                    src={logo}
+                    alt="Kalika Paints Logo"
+                    className="w-56 md:w-72 h-auto object-contain rounded-xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Categories Grid */}
       <section className="py-20 bg-kalika-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -246,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* Trust Bar */}
-      <section className="py-16 bg-kalika-cream">
+      <section className="py-6 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
@@ -254,11 +304,11 @@ export default function Home() {
               { stat: '500+', label: 'Color Shades' },
               { stat: '15+', label: 'Years Experience' },
             ].map((item, i) => (
-              <div key={i} className="group">
-                <div className="text-3xl md:text-4xl font-bold text-kalika-gold mb-1 group-hover:scale-110 transition-transform duration-300">
+              <div key={i} className="group p-6 rounded-xl hover:bg-kalika-cream transition-colors duration-300">
+                <div className="text-4xl font-bold text-kalika-gold mb-2 group-hover:scale-110 transition-transform duration-300">
                   {item.stat}
                 </div>
-                <p className="text-sm text-kalika-slate-light font-medium">{item.label}</p>
+                <p className="text-kalika-slate-light font-medium">{item.label}</p>
               </div>
             ))}
           </div>
