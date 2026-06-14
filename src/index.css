@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-kalika-navy: #0A1E3D;
+  --color-kalika-navy-light: #132D54;
+  --color-kalika-navy-dark: #06132A;
+  --color-kalika-gold: #C8922A;
+  --color-kalika-gold-light: #D4A94E;
+  --color-kalika-gold-dark: #A87720;
+  --color-kalika-cream: #FAF6F0;
+  --color-kalika-warm-gray: #F5F0E8;
+  --color-kalika-slate: #374151;
+  --color-kalika-slate-light: #6B7280;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-kalika-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b8c4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8a94a3;
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-kalika-gold);
+  color: white;
+}
