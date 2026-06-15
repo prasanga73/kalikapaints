@@ -72,19 +72,19 @@ export default function About() {
           <div className="bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-md flex flex-col md:flex-row items-center gap-8 md:gap-12">
             {/* Avatar / Portrait placeholder */}
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-kalika-navy to-kalika-navy-light flex items-center justify-center flex-shrink-0 shadow-inner">
-              <img 
+              {/* <img 
                 src={ProfilePic}
                 alt='👤'
                 className='w-full h-full rounded-full object-cover'
-                />
-              {/* <span className="text-5xl md:text-6xl select-none">👤</span> */}
+                /> */}
+              <span className="text-5xl md:text-6xl select-none">👤</span>
             </div>
 
             {/* Founder details and message */}
             <div className="flex-grow text-center md:text-left">
               <div className="mb-4">
-                <h3 className="text-2xl font-bold text-kalika-navy">Anish Niraula</h3>
-                <p className="text-sm font-semibold text-kalika-gold">Founder & CEO</p>
+                <h3 className="text-2xl font-bold text-kalika-navy">Yadhav Nepal</h3>
+                <p className="text-sm font-semibold text-kalika-gold"> CEO </p>
               </div>
               <p className="text-slate-600 leading-relaxed italic mb-4">
                 "At Kalika Paints, our goal has always been more than just selling colors. We strive to bring harmony, protection, and long-lasting beauty to every surface we touch. By blending modern formulation technology with traditional design, we deliver products that nurture the spaces where life happens."
@@ -100,7 +100,7 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
               { stat: '10K+', label: 'Happy Customers' },
-              { stat: '500+', label: 'Color Shades' },
+              { stat: '2500+', label: 'Color Shades' },
               { stat: '15+', label: 'Years Experience' },
             ].map((item, i) => (
               <div key={i} className="group p-6 rounded-xl hover:bg-kalika-cream transition-colors duration-300">

@@ -301,7 +301,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
               { stat: '10K+', label: 'Happy Customers' },
-              { stat: '500+', label: 'Color Shades' },
+              { stat: '2500+', label: 'Color Shades' },
               { stat: '15+', label: 'Years Experience' },
             ].map((item, i) => (
               <div key={i} className="group p-6 rounded-xl hover:bg-kalika-cream transition-colors duration-300">
