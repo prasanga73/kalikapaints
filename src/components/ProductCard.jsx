@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
+import { getBackendUrl } from '../utils/api';
 
 export default function ProductCard({ id, name, category, price, image, description }) {
+  const backendUrl = getBackendUrl();
   return (
     <div className="group bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-400 flex flex-col overflow-hidden">
       {/* Image */}
       <div className="w-full bg-white border-b border-gray-100 flex items-center justify-center p-8">
         {image ? (
           <img
-            src={image}
+            src={image.startsWith('http') ? image : (image.startsWith('/uploads') ? backendUrl + image : image)}
             alt={name}
             className="h-44 w-auto max-w-full object-contain"
           />

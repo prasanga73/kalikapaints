@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
-import { products as allProducts } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 
 export default function Products() {
+  const { products: allProducts, loading } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get('category') || 'all';
   const [priceRange, setPriceRange] = useState([400, 2500]);
@@ -132,10 +133,21 @@ export default function Products() {
               </select>
             </div>
 
-            {filteredProducts.length > 0 ? (
+            {loading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="animate-pulse bg-white rounded-2xl border border-gray-200 h-80 flex flex-col p-6 space-y-4">
+                    <div className="bg-slate-200 h-36 w-full rounded-xl" />
+                    <div className="bg-slate-200 h-6 w-3/4 rounded-md" />
+                    <div className="bg-slate-200 h-4 w-full rounded-md" />
+                    <div className="bg-slate-200 h-10 w-full rounded-lg" />
+                  </div>
+                ))}
+              </div>
+            ) : filteredProducts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProducts.map((product) => (
-                  <ProductCard key={product.id} {...product} />
+                  <ProductCard key={product._id} id={product._id} {...product} />
                 ))}
               </div>
             ) : (

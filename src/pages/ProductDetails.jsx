@@ -1,17 +1,33 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { products } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import ProductCard from '../components/ProductCard';
+import { getBackendUrl } from '../utils/api';
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const product = products.find((p) => p.id === parseInt(id));
+  const { products, loading } = useProducts();
+  const backendUrl = getBackendUrl();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-kalika-cream flex flex-col items-center justify-center">
+        <div className="relative w-16 h-16">
+          <div className="absolute inset-0 rounded-full border-4 border-kalika-navy/10"></div>
+          <div className="absolute inset-0 rounded-full border-4 border-t-kalika-gold animate-spin"></div>
+        </div>
+        <p className="mt-4 text-kalika-navy font-bold tracking-wider text-sm">LOADING PRODUCT DETAILS...</p>
+      </div>
+    );
+  }
+
+  const product = products.find((p) => p._id === id);
 
   if (!product) {
     return <Navigate to="/products" replace />;
   }
 
   const recommendedProducts = products
-    .filter((p) => p.id !== product.id)
+    .filter((p) => p._id !== product._id)
     .slice(0, 4);
 
   return (
@@ -33,7 +49,7 @@ export default function ProductDetails() {
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-12 flex items-center justify-center border-r border-gray-100">
               {product.image ? (
                 <img
-                  src={product.image}
+                  src={product.image.startsWith('http') ? product.image : (product.image.startsWith('/uploads') ? backendUrl + product.image : product.image)}
                   alt={product.name}
                   className="w-full max-w-md h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                 />
@@ -91,7 +107,7 @@ export default function ProductDetails() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {recommendedProducts.map((p) => (
-              <ProductCard key={p.id} {...p} />
+              <ProductCard key={p._id} id={p._id} {...p} />
             ))}
           </div>
         </div>
